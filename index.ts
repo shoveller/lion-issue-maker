@@ -18,9 +18,13 @@ const run = async () => {
 		repo
 	}).then(({data}) => data)
 
-	console.log(list.map(({url, title}) => {
+	const filteredList = list.filter(({ title }) => {
+		return title.indexOf('STD') > -1
+	}).map(({url, title}) => {
 		return {url, title}
-	}))
+	})
+
+	console.log(filteredList)
 }
 
 run()
