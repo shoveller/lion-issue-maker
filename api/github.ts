@@ -1,0 +1,23 @@
+import {Octokit} from "octokit";
+
+const octokit = new Octokit({
+	auth: process.env.github_access_token
+})
+
+interface IgetClosedIssues {
+	owner: string
+	repo: string
+}
+
+interface Issue {
+	url: string,
+	title: string
+}
+
+export const getClosedIssues = ({
+	                                owner,
+	                                repo
+                                }: IgetClosedIssues): Promise<Issue[]> => octokit.request(`GET /repos/${owner}/${repo}/issues?state=closed`, {
+	owner,
+	repo
+}).then(({data}) => data)
