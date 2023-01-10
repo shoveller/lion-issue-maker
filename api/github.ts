@@ -9,7 +9,7 @@ interface IgetClosedIssues {
 	repo: string
 }
 
-interface Issue {
+export interface Issue {
 	url: string,
 	title: string
 }
