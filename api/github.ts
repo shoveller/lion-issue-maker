@@ -10,7 +10,7 @@ interface IgetClosedIssues {
 }
 
 export interface Issue {
-	url: string,
+	html_url: string,
 	title: string
 }
 

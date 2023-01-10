@@ -14,15 +14,15 @@ const getFilteredList = async () => {
 		const bIndex = Number(b.title.slice(end).replace(/\D/ig, ''))
 
 		return aIndex - bIndex
-	}).map(({url, title}) => {
-		return {url, title}
+	}).map(({title, html_url}) => {
+		return {html_url, title}
 	})
 }
 
 const issueList2Mkdown = (issueList: Issue[]) => {
-	return issueList.map(({title, url}) => {
-		return `[${title}](${url})`
-	}).join('\n\n')
+	return issueList.map(({title, html_url}) => {
+		return `[${title}](${html_url})`
+	}).join('\r\n\r\n')
 }
 
 const run = async () => {
