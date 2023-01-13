@@ -21,8 +21,8 @@ const getFilteredList = async () => {
 
 const issueList2Mkdown = (issueList: Issue[]) => {
 	return issueList.map(({title, html_url}) => {
-		return `[${title}](${html_url})`
-	}).join('\r\n\r\n')
+		return `${title}: <${html_url}>`
+	}).join('\r\n')
 }
 
 const run = async () => {
